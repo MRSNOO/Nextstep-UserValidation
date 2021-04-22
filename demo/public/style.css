@@ -4,12 +4,21 @@
 
 body {
   margin: 0;
+  height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #container {
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
+  
+}
+
+#firebaseui-container{
+  margin: auto 0;
 }
 
 .clearfix {

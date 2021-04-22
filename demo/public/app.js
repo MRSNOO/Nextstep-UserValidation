@@ -93,6 +93,9 @@ var signInWithPopup = function() {
  * Displays the UI for a signed in user.
  * @param {!firebase.User} user
  */
+
+// Over here, set any divs that you want to display only to logged in users to block display (set their
+// default to display: none)
 var handleSignedInUser = function(user) {
   document.getElementById('user-signed-in').style.display = 'block';
   document.getElementById('user-signed-out').style.display = 'none';
@@ -183,22 +186,11 @@ function handleConfigChange() {
  * Initializes the app.
  */
 var initApp = function() {
-  document.getElementById('sign-in-with-redirect').addEventListener(
-      'click', signInWithRedirect);
-  document.getElementById('sign-in-with-popup').addEventListener(
-      'click', signInWithPopup);
+  
   document.getElementById('sign-out').addEventListener('click', function() {
     firebase.auth().signOut();
   });
-  document.getElementById('delete-account').addEventListener(
-      'click', function() {
-        deleteAccount();
-      });
-
-  document.getElementById('recaptcha-normal').addEventListener(
-      'change', handleConfigChange);
-  document.getElementById('recaptcha-invisible').addEventListener(
-      'change', handleConfigChange);
+  
   // Check the selected reCAPTCHA mode.
   document.querySelector(
       'input[name="recaptcha"][value="' + getRecaptchaMode() + '"]')
